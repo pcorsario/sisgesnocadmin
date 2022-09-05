@@ -1,0 +1,26 @@
+body{
+    background-color:aliceblue;
+}
+h1{
+    color:blue;
+    text-shadow: 2px 2px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+    }
+#titulorosado{
+    color:pink;
+    text-shadow: 2px 2px 5px red;
+}
+
+.titulorojo{
+    color:red;
+}
+.titulomorado{
+    color: purple;
+}
+img {
+    border-radius: 20%;
+  }
