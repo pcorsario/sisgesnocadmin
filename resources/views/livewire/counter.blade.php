@@ -5,7 +5,7 @@
 
     <tr>
 
-      <th scope="col">#</th>
+      <th scope="col">ID</th>
 
       <th scope="col">Nombre</th>
 

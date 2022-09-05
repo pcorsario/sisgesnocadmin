@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-<livewire:counter />
+<!-- He sacado la tabla de este apartado por estetica -->
     <div class="row justify-content">
         <div class="col-md-8">
             <div class="card">
@@ -36,7 +36,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    <p><livewire:counter /></p>
+                    <p>Proyecto de control de productos del instituto Japon</p>
                 </div>
             </div>
         </div>

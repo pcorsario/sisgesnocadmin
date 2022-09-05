@@ -24,7 +24,7 @@ class Counter extends Component
     {
         return view('livewire.counter', [
 
-            'productos' => Producto::paginate(1),
+            'productos' => Producto::paginate(3),
 
         ]);
     }
