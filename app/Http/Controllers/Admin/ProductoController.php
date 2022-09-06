@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class ProductoController extends Controller
@@ -27,7 +28,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.productos.create');
     }
 
     /**
@@ -38,7 +39,13 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $producto=new Producto();
+        $producto->nombre=$request->nombre;
+        $producto->precio=$request->precio;
+        $producto->save();
+        return view('admin.productos.index');
+
     }
 
     /**
