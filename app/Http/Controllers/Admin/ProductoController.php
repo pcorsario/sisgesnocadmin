@@ -15,7 +15,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = DB::table('productos')->paginate(1);
+        $productos = DB::table('productos')->paginate(3);
         // dd($productos);
         return view('admin.productos.index', ['productos' => $productos]);
       
@@ -44,10 +44,11 @@ class ProductoController extends Controller
         $producto->nombre=$request->nombre;
         $producto->precio=$request->precio;
         $producto->save();
-        return view('admin.productos.index');
+        $productos = DB::table('productos')->paginate(3);
+        return view('admin.productos.index', ['productos' => $productos]);
 
     }
-
+ 
     /**
      * Display the specified resource.
      *
@@ -56,7 +57,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -67,7 +68,10 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        $producto=Producto::where('id',$id)->firstOrFail();
+        // dd($producto);
+        return view('admin.productos.edit',compact('producto'));
     }
 
     /**
@@ -79,7 +83,14 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($id);
+        $producto=Producto::where('id',$id)->firstOrFail();
+        $producto->nombre=$request->nombre;
+        $producto->precio=$request->precio;
+        $producto->save();
+        $productos = DB::table('productos')->paginate(3);
+        return view('admin.productos.index', ['productos' => $productos]);
+
     }
 
     /**
@@ -90,6 +101,7 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto=Producto::where('id',$id)->firstOrFail();
+        $producto->delete();
     }
 }

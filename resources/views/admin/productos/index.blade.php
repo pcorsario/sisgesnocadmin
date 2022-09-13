@@ -17,6 +17,8 @@
       <th scope="col">Nombre</th>
 
       <th scope="col">Precio</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
 
     </tr>
 
@@ -34,6 +36,8 @@
 
       <td>{{ $producto->precio }}</td>
 
+      <td><a class="btn btn-primary" href="{{ route('admin-producto.edit', $producto->id)}}">Editar</a></td>
+      <td><a class="btn btn-danger" href="{{ route('admin-producto.destroy', $producto->id)}}">Eliminar</a></td>
     </tr>
 
     @endforeach
