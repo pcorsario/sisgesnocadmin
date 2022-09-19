@@ -101,7 +101,10 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
+        
         $producto=Producto::where('id',$id)->firstOrFail();
         $producto->delete();
+        $productos = DB::table('productos')->paginate(3);
+        return view('admin.productos.index', ['productos' => $productos]);
     }
 }

@@ -37,7 +37,15 @@
       <td>{{ $producto->precio }}</td>
 
       <td><a class="btn btn-primary" href="{{ route('admin-producto.edit', $producto->id)}}">Editar</a></td>
-      <td><a class="btn btn-danger" href="{{ route('admin-producto.destroy', $producto->id)}}">Eliminar</a></td>
+
+      <td>
+      <form action="{{ route('admin-producto.destroy', $producto->id)}}" method="POST">
+       @csrf
+       @method('DELETE')
+        <button class="btn btn-danger" type="submit" onsubmit="return confirm('¿Estás seguro de eliminar ...')">
+        Eliminar</button>
+      </form>
+      </td>
     </tr>
 
     @endforeach
