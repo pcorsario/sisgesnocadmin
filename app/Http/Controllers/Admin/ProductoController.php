@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 class ProductoController extends Controller
 {
     /**
@@ -16,7 +17,9 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = DB::table('productos')->paginate(3);
-        // dd($productos);
+        //  dd($productos);
+        // $pdf=PDF::loadView('admin.productos.productos-pdf',['productos' => $productos]);
+        // return $pdf->stream('productos-pdf.pdf');
         return view('admin.productos.index', ['productos' => $productos]);
       
     }
@@ -28,7 +31,11 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('admin.productos.create');
+        //return view('admin.productos.create');
+        $productos = DB::table('productos')->paginate(3);
+        //  dd($productos);
+        $pdf=PDF::loadView('admin.productos.productos-pdf',['productos' => $productos]);
+        return $pdf->stream('productos-pdf.pdf');
     }
 
     /**

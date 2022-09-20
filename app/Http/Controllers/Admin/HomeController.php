@@ -16,10 +16,14 @@ class HomeController extends Controller
     public function index()
     {
         $users = DB::table('users')->get();
-
+        $tpro = DB::table('productos')->count();
+        //  dd($tpro);
  
 
-        return view('admin.index', ['users' => $users]);
+        return view('admin.index', [
+            'users' => $users,
+            'tpro' => $tpro
+        ]);
     }
 
     /**
